@@ -9,4 +9,4 @@ Crabs, nasty things, but delicious. We call this new OS Crabelly.
 
 Crabelly is based on the Mach Operating System project at Carnegie-Mellon University.
 
-Email: topwaye@hotmail.com
+topwaye@hotmail.com
