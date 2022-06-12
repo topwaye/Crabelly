@@ -9,6 +9,6 @@ Crabs, nasty things, but delicious. We call this new OS Crabelly.
 
 Crabelly is based on the Mach Operating System project at Carnegie-Mellon University.
 
-Crabelly runs on both multiprocessor and uniprocessor computers connected by networks. Crabelly was designed to provide advanced kernel facilities, in particular, virtual memory management and network communication.
+Crabelly runs on both uniprocessor and multiprocessor computers connected by networks. Crabelly is designed to provide advanced kernel facilities, in particular, virtual memory management and network communication.
 
 topwaye@hotmail.com
