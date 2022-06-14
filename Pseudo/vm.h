@@ -47,14 +47,14 @@ struct VMMAPENTRY
 
 struct VMMAP
 {
-	struct PHYSICALMAP*		pmap;
-	struct VMMAPENTRY		header;
-	count_t				entries;
+	struct PHYSMAP*			physmap;	/* physical map */
+	struct VMMAPENTRY		header;		/* list of entries */
+	count_t				entries;	/* number of entries */
 };
 
 struct VMSPACE
 {
-	struct VMMAP			map;
+	struct VMMAP			map;		/* virtual map */
 };
 
 #endif
