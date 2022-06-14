@@ -23,6 +23,34 @@ struct										\
 
 TAILQ_HEAD(PGLIST, VMPAGE);
 
+struct VMANON
+{
+	count_t				ref;		/* reference count */
+	union
+	{
+		struct VMANON*	nxt;			/* if on free list [afreelock] */
+		struct VMPAGE*	page;			/* if in RAM [an_lock] */
+	}				u;
+	count_t 			swslot;		/* drum swap slot number (if != 0) */
+};
+
+struct VMAMAP
+{
+	count_t				ref;		/* reference count */
+	count_t				maxslot;	/* max number of slots allocated */
+	count_t				slots;		/* number of slots currently in map ( <= maxslot) */
+	count_t				used;		/* number of slots currently in use */
+	count_t*			arrslot;	/* contig array of active slots */
+	count_t*			bckptr;		/* back pointer array to arrslot */
+	struct VMANON**			anon; 		/* array of anonymous pages */
+};
+
+struct VMAREF
+{
+	count_t 			pageoff;	/* page offset into amap we start */
+	struct VMAMAP*			amap;		/* pointer to amap */
+};
+
 struct VMPAGE
 {
 	TAILQ_ENTRY(VMPAGE)		pageq;		/* queue info for FIFO queue or free list */
