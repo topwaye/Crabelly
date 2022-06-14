@@ -16,7 +16,7 @@ struct VMPAGE
 	struct UVMOBJECT*		object;		/* which object am I in */
 	struct VMANON*			anon;		/* which anon am I in */
 	count_t				wired;		/* wired down map refs */
-	count_t				loan;		/* number of active loans */
+	count_t				loans;		/* number of active loans */
 	paddr_t				physaddr;	/* physical address of page */
 };
 
