@@ -28,8 +28,8 @@ struct VMANON
 	count_t				ref;		/* reference count */
 	union
 	{
-		struct VMANON*	nxt;			/* if on free list [afreelock] */
-		struct VMPAGE*	page;			/* if in RAM [an_lock] */
+		struct VMANON*	nxt;			/* if on free list */
+		struct VMPAGE*	page;			/* if in RAM */
 	}				u;
 	count_t 			swslot;		/* drum swap slot number (if != 0) */
 };
