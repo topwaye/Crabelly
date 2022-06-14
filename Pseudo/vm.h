@@ -25,9 +25,9 @@ TAILQ_HEAD(PGLIST, VMPAGE);
 
 struct VMPAGE
 {
-	TAILQ_ENTRY(VMPAGE)		pageq;		/* queue info for FIFO queue or free list (P) */
-	TAILQ_ENTRY(VMPAGE)		hashq;		/* hash table links (O)*/
-	TAILQ_ENTRY(VMPAGE)		listq;		/* pages in same object (O)*/
+	TAILQ_ENTRY(VMPAGE)		pageq;		/* queue info for FIFO queue or free list */
+	TAILQ_ENTRY(VMPAGE)		hashq;		/* hash table links */
+	TAILQ_ENTRY(VMPAGE)		listq;		/* pages in same object */
 	
 	vaddr_t				offset;		/* offset into object */
 	struct UVMOBJECT*		object;		/* which object am I in */
