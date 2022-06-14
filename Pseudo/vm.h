@@ -12,19 +12,19 @@ struct VMPAGE
 	TAILQ_ENTRY(VMPAGE)		hashq;		/* hash table links (O)*/
 	TAILQ_ENTRY(VMPAGE)		listq;		/* pages in same object (O)*/
 	
-	vaddr_t					offset;		/* offset into object */
+	vaddr_t				offset;		/* offset into object */
 	struct UVMOBJECT*		object;		/* which object am I in */
 	struct VMANON*			anon;		/* which anon am I in */
-	count_t					wired;		/* wired down map refs */
-	count_t					loan;		/* number of active loans */
-	paddr_t					physaddr;	/* physical address of page */
+	count_t				wired;		/* wired down map refs */
+	count_t				loan;		/* number of active loans */
+	paddr_t				physaddr;	/* physical address of page */
 };
 
 struct UVMOBJECT
 {
 	struct PGLIST			memq;		/* pages in this object */
-	count_t					pages;		/* # of pages in memq */
-	count_t					refs;		/* reference count */
+	count_t				pages;		/* # of pages in memq */
+	count_t				refs;		/* reference count */
 };
 
 union VMMAPOBJECT
@@ -37,11 +37,11 @@ struct VMMAPENTRY
 {
 	struct VMMAPENTRY*		prev;
 	struct VMMAPENTRY*		next;
-	vaddr_t					start;		/* start address */
-	vaddr_t					end;		/* end address */
+	vaddr_t				start;		/* start address */
+	vaddr_t				end;		/* end address */
 	union VMMAPOBJECT		object;		/* object I point to */
-	vsize_t					offset;		/* offset into object */
-	count_t					wired;		/* can be paged if = 0 */
+	vsize_t				offset;		/* offset into object */
+	count_t				wired;		/* can be paged if = 0 */
 	struct VMAREF			aref;		/* anonymous overlay */
 };
 
@@ -49,7 +49,7 @@ struct VMMAP
 {
 	struct PHYSICALMAP*		pmap;
 	struct VMMAPENTRY		header;
-	count_t					entries;
+	count_t				entries;
 };
 
 struct VMSPACE
