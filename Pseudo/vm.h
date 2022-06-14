@@ -7,18 +7,18 @@ typedef unsigned long	vsize_t;
 typedef unsigned long	paddr_t;
 
 /* Tail queue definitions */
-#define TAILQ_HEAD(name, type)										\
-struct name 														\
-{																	\
-	struct type *tqh_first;	/* first element */						\
+#define TAILQ_HEAD(name, type)							\
+struct name 									\
+{										\
+	struct type *tqh_first;	/* first element */				\
 	struct type **tqh_last;	/* addr of last next element */			\
 }
 
-#define TAILQ_ENTRY(type)											\
-struct																\
-{																	\
-	struct type *tqe_next;	/* next element */						\
-	struct type **tqe_prev;	/* address of previous next element */	\
+#define TAILQ_ENTRY(type)							\
+struct										\
+{										\
+	struct type *tqe_next;	/* next element */				\
+	struct type **tqe_prev;	/* address of previous next element */		\
 }
 
 TAILQ_HEAD(PGLIST, VMPAGE);
