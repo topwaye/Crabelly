@@ -23,7 +23,7 @@ struct VMPAGE
 struct UVMOBJECT
 {
 	struct PGLIST			memq;		/* pages in this object */
-	count_t				pages;		/* # of pages in memq */
+	count_t				pages;		/* number of pages in memq */
 	count_t				refs;		/* reference count */
 };
 
