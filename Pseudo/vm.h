@@ -3,7 +3,6 @@
 
 typedef unsigned long	count_t;
 typedef unsigned long	vaddr_t;
-typedef unsigned long	vsize_t;
 typedef unsigned long	paddr_t;
 
 /* Tail queue definitions */
@@ -37,7 +36,7 @@ union VMMAPOBJECT
 	VMMAP				submap;		/* belongs to another map */
 	struct
 	{	
-		vsize_t	offset;				/* offset into the main object */
+		count_t	offset;				/* offset into the main object */
 		struct VMOBJECT	main;			/* object I point to */
 		struct VMOBJECT	copy;			/* anonymous overlay */
 	}				object;
