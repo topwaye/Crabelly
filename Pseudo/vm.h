@@ -5,26 +5,20 @@ TAILQ_HEAD(PGLIST, VMPAGE);
 TAILQ_HEAD(HASHLIST, VMPAGE);
 TAILQ_HEAD(MAPENTRYLIST, VMMAPENTRY);
 
-struct VMOBJECT						/* there is no reference count */
-{							/* cannot be held by other processes */
-	count_t				pages;		/* number of pages in memq */
-};
-
-union VMMAPOBJECT
+union VMMAPSEG
 {
 	VMMAP				submap;		/* belongs to another map */
 	struct
 	{	
-		count_t	offset;				/* offset into the main object */
-		struct VMOBJECT	main;			/* doesn't allow to hold another object */
-	}				obj;
+		count_t	offset;				/* offset into src */
+	}				segment;
 };
 
 struct VMMAPENTRY
 {
 	vaddr_t				start;		/* start address */
 	vaddr_t				end;		/* end address */
-	union VMMAPOBJECT		mapobj;
+	union VMMAPSEG			mapseg;
 };
 
 struct VMMAP
