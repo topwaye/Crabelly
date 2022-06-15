@@ -1,10 +1,15 @@
 #ifndef VM_PSEUDO
 #define VM_PSEUDO
 
+struct VMSEGMENT
+{
+	count_t				offset;		/* offset into src */
+};
 
 union VMMAPSEG
 {
 	VMMAP				submap;		/* belongs to another map */
+	VMSEGMENT				belongs to another map */
 	struct
 	{	
 		count_t	offset;				/* offset into src */
