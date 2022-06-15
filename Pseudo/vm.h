@@ -26,11 +26,7 @@ TAILQ_HEAD(PGLIST, VMPAGE);
 struct VMANON
 {
 	count_t				ref;		/* reference count */
-	union
-	{
-		struct VMANON*	nxt;			/* if on free list */
-		struct VMPAGE*	page;			/* if in RAM */
-	}				u;
+	struct VMPAGE*			page;		/* if in RAM */
 	count_t 			swslot;		/* drum swap slot number (if != 0) */
 };
 
