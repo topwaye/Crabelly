@@ -3,7 +3,9 @@
 
 struct VMSEGMENT
 {
-	count_t				offset;		/* offset into src */
+	count_t				offset;		/* offset into pager */
+	count_t				copyings;	/* number of copyings */
+	vaddr_t				copying[16];	/* page addresses being copied */
 };
 
 union VMMAPSEG
