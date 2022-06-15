@@ -30,7 +30,7 @@ union VMMAPOBJECT
 		count_t	offset;				/* offset into the main object */
 		struct VMOBJECT	main;			/* doesn't allow to hold another object */
 		struct VMOBJECT	copy;			/* anonymous overlay */
-	}						object;
+	}				object;
 };
 
 struct VMMAPENTRY
