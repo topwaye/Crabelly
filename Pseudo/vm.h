@@ -1,24 +1,14 @@
 #ifndef VM_PSEUDO
 #define VM_PSEUDO
 
-typedef unsigned long	count_t;
-typedef unsigned long	vaddr_t;
-typedef unsigned long	paddr_t;
-
-/* Tail queue definitions */
-#define TAILQ_HEAD(name, type)							\
-struct name 									\
-{										\
-	struct type *tqh_first;	/* first element */				\
-	struct type **tqh_last;	/* addr of last next element */			\
-}
-
 TAILQ_HEAD(PGLIST, VMPAGE);
 TAILQ_HEAD(HASHLIST, VMPAGE);
 TAILQ_HEAD(MAPENTRYLIST, VMMAPENTRY);
 
 struct VMPAGE
 {
+	boolean_t			copying;	/* PG_BUSY: page is being copied */
+	count_t				refs;		/* reference count */
 	vaddr_t				offset;		/* offset into object */
 	paddr_t				physaddr;	/* physical address of page */
 };
