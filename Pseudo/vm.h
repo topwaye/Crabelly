@@ -27,8 +27,7 @@ union VMMAPOBJECT
 	struct
 	{	
 		count_t	offset;				/* offset into the main object */
-		struct VMOBJECT	main;			/* doesn't allow to hold another object */
-		struct VMOBJECT	copy;			/* anonymous overlay */
+		struct VMOBJECT	alone;			/* doesn't allow to hold another object */
 	}				object;
 };
 
