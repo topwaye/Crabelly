@@ -5,19 +5,8 @@ TAILQ_HEAD(PGLIST, VMPAGE);
 TAILQ_HEAD(HASHLIST, VMPAGE);
 TAILQ_HEAD(MAPENTRYLIST, VMMAPENTRY);
 
-struct VMPAGE
-{
-	simple_lock_data_t		lock;		/* page can be held by other processes */
-	count_t				refs;		/* reference count */
-	boolean_t			copying;	/* PG_BUSY: page is being copied */
-	vaddr_t				offset;		/* offset into object */
-	paddr_t				physaddr;	/* physical address of page */
-};
-
 struct VMOBJECT						/* there is no reference count */
 {							/* cannot be held by other processes */
-	struct HASHLIST			hashq;		/* hash table links */
-	struct PGLIST			memq;		/* pages in this object */
 	count_t				pages;		/* number of pages in memq */
 };
 
@@ -28,8 +17,7 @@ union VMMAPOBJECT
 	{	
 		count_t	offset;				/* offset into the main object */
 		struct VMOBJECT	main;			/* doesn't allow to hold another object */
-		struct VMOBJECT	copy;			/* anonymous overlay */
-	}				dualobj;
+	}				obj;
 };
 
 struct VMMAPENTRY
