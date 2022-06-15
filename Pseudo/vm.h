@@ -37,8 +37,8 @@ union VMMAPOBJECT
 	struct
 	{
 		count_t	offset;				/* offset into the main object */
-		struct VMOBJECT	main;			/* object I point to */
-		struct VMOBJECT	copy;			/* anonymous overlay */
+		struct VMOBJECT* main;			/* object I point to */
+		struct VMOBJECT* copy;			/* anonymous overlay */
 	}				object;
 };
 
