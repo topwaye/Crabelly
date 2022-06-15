@@ -47,6 +47,7 @@ struct VMMAP
 
 struct VMSPACE
 {
+	lock_data_t			lock;		/* lock for the entire treemap */
 	struct VMMAP			map;		/* virtual map */
 	struct PHYSMAP*			pmap;		/* physical map */
 };
