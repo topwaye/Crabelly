@@ -42,7 +42,7 @@ struct VMAMAP
 	count_t				used;		/* number of slots currently in use */
 	count_t*			arrslot;	/* contig array of active slots */
 	count_t*			bckptr;		/* back pointer array to arrslot */
-	struct VMANON**			anon; 		/* array of anonymous pages */
+	struct VMANON**			arranon; 	/* array of anonymous pages */
 };
 
 struct VMAREF
@@ -53,7 +53,6 @@ struct VMAREF
 
 struct VMPAGE
 {
-	TAILQ_ENTRY(VMPAGE)		pageq;		/* queue info for FIFO queue or free list */
 	TAILQ_ENTRY(VMPAGE)		hashq;		/* hash table links */
 	TAILQ_ENTRY(VMPAGE)		listq;		/* pages in same object */
 	
