@@ -9,11 +9,7 @@ struct VMSEGMENT
 union VMMAPSEG
 {
 	VMMAP				submap;		/* belongs to another map */
-	VMSEGMENT				belongs to another map */
-	struct
-	{	
-		count_t	offset;				/* offset into src */
-	}				segment;
+	VMSEGMENT			submap;		/* belongs to another map */
 };
 
 struct VMMAPENTRY
