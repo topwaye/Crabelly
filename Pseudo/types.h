@@ -11,6 +11,5 @@ typedef int boolean_t;
 
 typedef unsigned long	count_t;
 typedef unsigned long	vaddr_t;
-typedef unsigned long	paddr_t;
 
 #endif
