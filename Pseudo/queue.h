@@ -5,7 +5,8 @@
  * Tail queue definitions.
  */
 #define TAILQ_HEAD(name, type)						\
-struct name {								\
+struct name								\
+{									\
 	struct type *tqh_first;	/* first element */			\
 	struct type **tqh_last;	/* addr of last next element */		\
 }
