@@ -1,7 +1,8 @@
 #ifndef VM_PSEUDO
 #define VM_PSEUDO
 
-TAILQ_HEAD(PGLIST, vaddr_t); 
+TAILQ_HEAD(PGLIST, vaddr_t);
+TAILQ_HEAD(MAPENTRYLIST, VMMAPENTRY);
 
 struct VMSEGMENT							/* pages do exist, but */
 {									/* VMPAGE struct does NOT exist */
