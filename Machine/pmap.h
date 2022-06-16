@@ -218,5 +218,183 @@ struct pmap {
   struct pmap_statistics pm_stats;  /* pmap stats (lck by object lock) */
 };
 
+/*
+ * global kernel variables
+ */
+
+/* PTDpaddr: is the physical address of the kernel's PDP */
+extern u_long PTDpaddr;
+
+extern struct pmap kernel_pmap_store;	/* kernel pmap */
+extern int nkpde;			/* current # of PDEs for kernel */
+extern int pmap_pg_g;			/* do we support PG_G? */
+
+/*
+ * macros
+ */
+
+#define	pmap_kernel()			(&kernel_pmap_store)
+#define	pmap_resident_count(pmap)	((pmap)->pm_stats.resident_count)
+#define	pmap_update()			tlbflush()
+
+#define pmap_clear_modify(pg)		pmap_change_attrs(pg, 0, PG_M)
+#define pmap_clear_reference(pg)	pmap_change_attrs(pg, 0, PG_U)
+#define pmap_copy(DP,SP,D,L,S)		pmap_transfer(DP,SP,D,L,S, FALSE)
+#define pmap_is_modified(pg)		pmap_test_attrs(pg, PG_M)
+#define pmap_is_referenced(pg)		pmap_test_attrs(pg, PG_U)
+#define pmap_move(DP,SP,D,L,S)		pmap_transfer(DP,SP,D,L,S, TRUE)
+#define pmap_phys_address(ppn)		i386_ptob(ppn)
+#define pmap_valid_entry(E) 		((E) & PG_V) /* is PDE or PTE valid? */
+
+/*
+ * prototypes
+ */
+
+void		pmap_activate __P((struct proc *));
+void		pmap_bootstrap __P((vaddr_t));
+boolean_t	pmap_change_attrs __P((struct vm_page *, int, int));
+void		pmap_deactivate __P((struct proc *));
+static void	pmap_kenter_pa __P((vaddr_t, paddr_t, vm_prot_t));
+static void	pmap_page_protect __P((struct vm_page *, vm_prot_t));
+void		pmap_page_remove  __P((struct vm_page *));
+static void	pmap_protect __P((struct pmap *, vaddr_t, 
+				vaddr_t, vm_prot_t));
+void		pmap_remove __P((struct pmap *, vaddr_t, vaddr_t));
+boolean_t	pmap_test_attrs __P((struct vm_page *, int));
+void		pmap_transfer __P((struct pmap *, struct pmap *, vaddr_t, 
+				   vsize_t, vaddr_t, boolean_t));
+static void	pmap_update_pg __P((vaddr_t));
+static void	pmap_update_2pg __P((vaddr_t,vaddr_t));
+void		pmap_write_protect __P((struct pmap *, vaddr_t, 
+				vaddr_t, vm_prot_t));
+
+vaddr_t reserve_dumppages __P((vaddr_t)); /* XXX: not a pmap fn */
+
+#define PMAP_GROWKERNEL		/* turn on pmap_growkernel interface */
+
+/*
+ * inline functions
+ */
+
+/*
+ * pmap_update_pg: flush one page from the TLB (or flush the whole thing
+ *	if hardware doesn't support one-page flushing)
+ */
+
+__inline static void pmap_update_pg(va)
+
+vaddr_t va;
+
+{
+#if defined(I386_CPU)
+  if (cpu_class == CPUCLASS_386)
+    pmap_update();
+  else
+#endif
+    invlpg((u_int) va);
+}
+
+/*
+ * pmap_update_2pg: flush two pages from the TLB
+ */
+
+__inline static void pmap_update_2pg(va, vb)
+
+vaddr_t va, vb;
+
+{
+#if defined(I386_CPU)
+  if (cpu_class == CPUCLASS_386)
+    pmap_update();
+  else
+#endif
+    {
+      invlpg((u_int) va);
+      invlpg((u_int) vb);
+    }
+}
+
+/*
+ * pmap_page_protect: change the protection of all recorded mappings
+ *	of a managed page
+ *
+ * => this function is a frontend for pmap_page_remove/pmap_change_attrs
+ * => we only have to worry about making the page more protected.
+ *	unprotecting a page is done on-demand at fault time.
+ */
+
+__inline static void pmap_page_protect(pg, prot)
+
+struct vm_page *pg;
+vm_prot_t prot;
+
+{
+  if ((prot & VM_PROT_WRITE) == 0) {
+    if (prot & (VM_PROT_READ|VM_PROT_EXECUTE)) {
+      (void) pmap_change_attrs(pg, PG_RO, PG_RW);  
+    } else {
+      pmap_page_remove(pg);
+    }
+  }
+}
+
+/*
+ * pmap_protect: change the protection of pages in a pmap
+ *
+ * => this function is a frontend for pmap_remove/pmap_write_protect
+ * => we only have to worry about making the page more protected.
+ *	unprotecting a page is done on-demand at fault time.
+ */
+
+__inline static void pmap_protect(pmap, sva, eva, prot)
+
+struct pmap *pmap;
+vaddr_t sva, eva;
+vm_prot_t prot;
+
+{
+  if ((prot & VM_PROT_WRITE) == 0) {
+    if (prot & (VM_PROT_READ|VM_PROT_EXECUTE)) {
+      pmap_write_protect(pmap, sva, eva, prot);
+    } else {
+      pmap_remove(pmap, sva, eva);
+    }
+  }
+}
+
+/*
+ * pmap_kenter_pa: enter a kernel mapping without R/M (pv_entry) tracking
+ *
+ * => no need to lock anything, assume va is already allocated 
+ * => should be faster than normal pmap enter function
+ */
+                                              
+__inline static void pmap_kenter_pa(va, pa, prot)
+                                               
+vaddr_t va;
+paddr_t pa;
+vm_prot_t prot;
+  
+{
+  struct pmap *pm = pmap_kernel();
+  pt_entry_t *pte, opte;                     
+  int s;
+
+  s = splimp();
+  simple_lock(&pm->pm_obj.vmobjlock);
+  pm->pm_stats.resident_count++;
+  pm->pm_stats.wired_count++;
+  simple_unlock(&pm->pm_obj.vmobjlock);
+  splx(s);
+
+  pte = vtopte(va);     
+  opte = *pte;           
+  *pte = pa | ((prot & VM_PROT_WRITE)? PG_RW : PG_RO) |
+	      PG_V | pmap_pg_g;         /* zap! */
+  if (pmap_valid_entry(opte))
+    pmap_update_pg(va);                         
+}                                               
+
+vaddr_t	pmap_map __P((vaddr_t, paddr_t, paddr_t, int));
 
 #endif	/* PMAP_MACHINE */
