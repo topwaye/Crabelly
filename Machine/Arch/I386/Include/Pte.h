@@ -3,7 +3,7 @@
 
 #define	PDSHIFT		22		/* LOG2(NBPDR) */
 #define	NBPD		(1 << PDSHIFT)	/* bytes/page dir */
-#define	PDOFSET		(NBPD-1)		/* byte offset into page dir */
+#define	PDOFSET		(NBPD-1)	/* byte offset into page dir */
 #define	NPTEPD		(NBPD / NBPG)
 
 #ifndef _LOCORE
