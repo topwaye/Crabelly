@@ -2,7 +2,7 @@
 #define I386_PTE_MACHINE
 
 #define	PDSHIFT		22		/* LOG2(NBPDR) */
-#define	NBPD      (1 << PDSHIFT)	/* bytes/page dir */
+#define	NBPD		  (1 << PDSHIFT)	/* bytes/page dir */
 #define	PDOFSET		(NBPD-1)	/* byte offset into page dir */
 #define	NPTEPD		(NBPD / NBPG)
 
@@ -18,11 +18,11 @@ typedef unsigned long	pt_entry_t;		/* Mach page table entry */
 #define	PG_RO		  0x00000000	/* read-only by user (and kernel if 486) */
 #define	PG_RW		  0x00000002	/* read-write by user */
 #define	PG_u		  0x00000004	/* accessible by user */
-#define	PG_PROT   0x00000006	/* all protection bits */
+#define	PG_PROT		  0x00000006	/* all protection bits */
 #define	PG_N		  0x00000018	/* non-cacheable */
 #define	PG_U		  0x00000020	/* has been used */
 #define	PG_M		  0x00000040	/* has been modified */
-#define	PG_W      0x00000200	/* page is wired */
+#define	PG_W		  0x00000200	/* page is wired */
 #define	PG_FRAME	0xfffff000	/* page frame mask */
 
 #define	PG_FZERO	0
