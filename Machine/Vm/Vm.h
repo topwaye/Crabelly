@@ -1,7 +1,8 @@
 #ifndef VM_MACHINE
 #define VM_MACHINE
 
-typedef unsigned long vm_inherit_t;	/* XXX: inheritance codes */
+typedef unsigned long count_t;
+typedef unsigned long vm_inherit_t;		/* XXX: inheritance codes */
 
 union vm_map_object;
 typedef union vm_map_object vm_map_object_t;
@@ -51,7 +52,7 @@ struct vmspace {
 	/* XXX - All should use vm_map.pmap instead. */
 	struct	pmap vm_pmap;	/* private physical map */
 #endif
-	int	vm_refcnt;	/* number of references */
+	count_t	vm_refcnt;	/* number of references */
 	caddr_t	vm_shm;		/* SYS5 shared memory private data XXX */
 /* we copy from vm_startcopy to the end of the structure on fork */
 #define vm_startcopy vm_rssize
