@@ -8,7 +8,7 @@
 
 #ifndef _LOCORE
 typedef unsigned long	pd_entry_t;	/* page directory entry */
-typedef unsigned long	pt_entry_t;		/* Mach page table entry */
+typedef unsigned long	pt_entry_t;	/* Mach page table entry */
 #endif
 
 #define	PD_MASK		0xffc00000	/* page directory address bits */
@@ -23,7 +23,7 @@ typedef unsigned long	pt_entry_t;		/* Mach page table entry */
 #define	PG_U		0x00000020	/* has been used */
 #define	PG_M		0x00000040	/* has been modified */
 #define	PG_W		0x00000200	/* page is wired */
-#define	PG_FRAME	0xfffff000		/* page frame mask */
+#define	PG_FRAME	0xfffff000	/* page frame mask */
 
 #define	PG_FZERO	0
 #define	PG_FTEXT	1
