@@ -2,7 +2,7 @@
 #define VM_MACHINE
 
 typedef unsigned long number_t;
-typedef unsigned long vm_inherit_t;		/* XXX: inheritance codes */
+typedef unsigned long vm_inherit_t;	/* XXX: inheritance codes */
 
 union vm_map_object;
 typedef union vm_map_object vm_map_object_t;
