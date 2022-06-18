@@ -10,7 +10,6 @@
  *
  *	vm_prot_t		VM protection values.
  */
-
 typedef int		vm_prot_t;
 
 /*
