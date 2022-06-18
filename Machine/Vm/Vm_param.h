@@ -4,7 +4,6 @@
 /*
  *	Machine independent virtual memory parameters.
  */
-
 #include <machine/vmparam.h>
 
 /*
