@@ -1,8 +1,9 @@
-#ifndef VM_MACHINE
-#define VM_MACHINE
+/* Machine: vm.h,v 1.00 2022/06/19 */
 
-typedef unsigned long number_t;
-typedef unsigned long vm_inherit_t;	/* XXX: inheritance codes */
+#ifndef VM_H
+#define VM_H
+
+typedef int vm_inherit_t;		/* XXX: inheritance codes */
 
 union vm_map_object;
 typedef union vm_map_object vm_map_object_t;
@@ -22,14 +23,6 @@ typedef struct vm_page  *vm_page_t;
 struct pager_struct;
 typedef struct pager_struct *vm_pager_t;
 
-/*
- *	MACH VM locking type mappings to kernel types
- */
-typedef struct simplelock	simple_lock_data_t;
-typedef struct simplelock	*simple_lock_t;
-typedef struct lock		lock_data_t;
-typedef struct lock		*lock_t;
-
 #include <sys/vmmeter.h>
 #include <sys/queue.h>
 #include <vm/vm_param.h>
@@ -48,11 +41,7 @@ typedef struct lock		*lock_t;
  */
 struct vmspace {
 	struct	vm_map vm_map;	/* VM address map */
-#ifdef	__VM_PMAP_HACK
-	/* XXX - All should use vm_map.pmap instead. */
-	struct	pmap vm_pmap;	/* private physical map */
-#endif
-	number_t vm_refcnt;	/* number of references */
+	int	vm_refcnt;	/* number of references */
 	caddr_t	vm_shm;		/* SYS5 shared memory private data XXX */
 /* we copy from vm_startcopy to the end of the structure on fork */
 #define vm_startcopy vm_rssize
@@ -72,4 +61,4 @@ struct vmspace {
 #define vm_resident_count(vm) ((vm)->vm_rssize)
 #endif
 
-#endif /* VM_MACHINE */
+#endif /* VM_H */
