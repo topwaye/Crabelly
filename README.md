@@ -15,6 +15,6 @@ Designing, implementing, and testing an operating system as large and complex as
 
 I would like to thank those who take the time to learn about my work and provide me with valuable feedback on how it could be improved.
 
-I would also like to take this chance to say to those who are dreaming big: Go for it.
+I would also like to take this chance to say to those dreaming big: Go for it.
 
 topwaye@hotmail.com
