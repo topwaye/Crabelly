@@ -1,7 +1,7 @@
 # Crabelly
 The Crabelly Operating System Project
 
-Back to old time, I had a big dream to build a computer operating system. I was too young to understand how I could carry out something so complicated. The dream was still there, but I was not. It seemed the dream could never ever come true, until I got an inspiration from math. I love math, very good at it.
+Back to old time, I had a big dream to build a computer operating system. I was too young to understand how I could carry out something so complicated. The dream was still there, but I was not. It seemed the dream would never ever come true, until I got an inspiration from math. I love math, very good at it.
 
 The kernel is a mathematical model which is called Trapezoid-set. Trapezoid-set is the root logic behind the kernel, which is exactly what the kernel looks like.
 
