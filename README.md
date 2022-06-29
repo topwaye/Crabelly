@@ -11,4 +11,8 @@ Crabelly is based on the Unix Operating System project at Carnegie-Mellon Univer
 
 Crabelly runs on both uniprocessor and multiprocessor computers connected by networks. Crabelly is designed to provide advanced kernel facilities, in particular, virtual memory management and network communication.
 
+I would like to thank those who take the time to learn about my work and provide me with valuable feedback on how it could be improved.
+
+I would also like to take this chance to say to those who are dreaming big: Go for it.
+
 topwaye@hotmail.com
