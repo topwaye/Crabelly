@@ -13,7 +13,7 @@ Crabelly runs on both uniprocessor and multiprocessor computers connected by net
 
 Copy on Write or simply COW is a good theory which fools a lot of people. It is supposed to create a duplicate process which shares the virtual memory pages with its parent process. If any of these processes try to modify the shared pages then a copy of these pages will be created. Eventually the duplicate process will have its own copy of the parent process. Sounds good, but that is a lie, because fork() system call does not work this way in Unix. Then what happens ?
 
-Designing, implementing, and testing an operating system as large and complex as Unix is quite a challenge.
+Designing, implementing, and testing an operating system as large and complex as Unix is quite a challenge. That is how I built this OS. Make the unknown known.
 
 I would like to thank those who take the time to learn about my work and provide me with valuable feedback on how it could be improved.
 
