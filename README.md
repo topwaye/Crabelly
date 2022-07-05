@@ -11,7 +11,7 @@ Crabelly is based on the Unix Operating System project at Carnegie-Mellon Univer
 
 Crabelly runs on both uniprocessor and multiprocessor computers connected by networks, ranging from smart phones to personal home systems. Crabelly is designed to provide advanced kernel facilities, in particular, virtual memory management and network communication.
 
-Copy on Write or simply COW is a good theory which fools a lot of people. It is supposed to create a duplicate process which shares the virtual memory pages with its parent process. If any of these processes try to modify the shared pages then a copy of these pages will be created. Eventually the duplicate process will have its own copy of the parent process. Sounds good but that is a lie, because fork() system call does not work this way in Unix. Then what happens ?
+Copy on Write or simply COW is a good theory which fools a lot of people. It is supposed to create a duplicate process which shares the virtual memory pages with its parent process. If any of these processes try to modify the shared pages then a copy of these pages will be created. Eventually the duplicate process will have its own copy of the parent process. Sounds good, but that is a lie, because fork() system call does not work this way in Unix. Then what happens ?
 
 Designing, implementing, and testing an operating system as large and complex as Unix is quite a challenge.
 
