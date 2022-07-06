@@ -13,7 +13,7 @@ Crabelly runs on both uniprocessor and multiprocessor computers connected by net
 
 Copy-on-write or simply COW is a good theory which fools a lot of people. It is supposed to create a duplicate process which shares the virtual memory pages with its parent process. If any of these processes try to modify the shared pages then a copy of these pages will be created. Eventually the duplicate process will have its own copy of the parent process. Sounds good, but that is a lie, because fork() system call does not work this way in Unix. Then what happens ? 
 
-The data resident in an anonymous page is volatile, therefore splitting anonymous pages violates the rule of never manipulating volatile variables, which means the splitting will never happen, that is, copy-on-write to anonymous maps will never happen.
+The data resident in an anonymous page is volatile, therefore splitting anonymous pages violates the rule of never manipulating volatile variables, which means splitting anonymous maps will never happen, that is, copy-on-write is restricted.
 
 Another question: Do a share map and a copy-on-write map coexist at the same level ? Absolutely not.
 
