@@ -17,7 +17,7 @@ The data resident in an anonymous page is volatile, therefore splitting anonymou
 
 Another question: Do a share map and a copy-on-write map coexist at the same layer ? Absolutely not. If they do, a bug follows, meaning a map can only be shared the split part, not the unsplit part, in this undesirable situation.
 
-The inverted page table of each page is also a volatile variable which should not be used. If the protection of all mappings of a page is changed, that is OK, but what if a new process is born, and a new mapping to this page is created ? The protection of this page is bypassed.
+The inverted page table of each page is also a volatile variable which should not be used. If the protection of all mappings of a page is changed through this table, that is OK, but what if a new process is born, and a new mapping to this page is created ? The protection of this page is bypassed.
 
 Designing, implementing, and testing an operating system as large and complex as Unix is quite a challenge. That is how I built this OS. Make the unknown known.
 
