@@ -1,4 +1,4 @@
-/* $ Machine: pmap.c,v 1.00 2022/07/26 $ */
+/* Machine: pmap.c,v 1.00 2022/07/26 */
 
 /*
  * Derived originally from an old hp300 version by Mike Hibler.  The version
