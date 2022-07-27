@@ -21,7 +21,7 @@ What is the prototype of an OS ? Of course, it is the switchboard of a telephone
 
 An OS which has nothing to do with Linux is destined to do nothing with the real world. That is the dull side. The bright side is that this OS can teach you what an excellent OS is, what you can do with the kernel as you want, and what theory to base upon.
 
-When reading the Linux source code, you cannot tell where you are. There are only a small number of people who might know the entire kernel code in the Linux core team. Linux is a kernel that you just cannot read through. That is a good news, meaning no man is an expert, each is a part of the main. We are all equal. No man could be a hero who takes charge of everything in the Linux world.
+When reading the Linux source code, you can hardly tell where you are. There are only a small number of people who might know the entire kernel code in the Linux core team. Linux is a kernel that you just cannot read through. That is a good news, meaning no man is an expert, each is a part of the main. We are all equal. No man could be a hero who takes charge of everything in the Linux world.
 
 Designing, implementing, and testing an operating system as large and complex as Unix is quite a challenge. That is how I built this OS. Make the unknown known.
 
