@@ -19,6 +19,8 @@ Another question: Do a share map and a copy-on-write map coexist at the same lay
 
 What is the prototype of an OS ? Of course, it is the switchboard of a telephone system used by a company, etc., where telephone calls are answered and put through(= connected) to the appropriate person or department.
 
+An OS which has nothing to do with Linux is destined to do nothing with the real world. That is the dull side. The bright side is that this OS can teach you what an excellent OS is, what you can do with the kernel as you want, and what theory to base upon.
+
 Designing, implementing, and testing an operating system as large and complex as Unix is quite a challenge. That is how I built this OS. Make the unknown known.
 
 I would like to thank those who take the time to learn about my work and provide me with valuable feedback on how it could be improved.
