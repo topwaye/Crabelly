@@ -23,7 +23,7 @@ An OS which has nothing to do with Linux is destined to do nothing with the real
 
 When reading the Linux source code, you can hardly tell where you are. There are only a small number of people who might know the entire kernel code in the Linux core team. Linux is a kernel that you just cannot read through. That is a good news, which means no man is an expert, each is a part of the main, which means we are all equal at this point, no man could be a hero who takes charge of everything in the Linux world. We use it, but we do not touch it.
 
-I cannot separate the physical map layer from the machine-independent code of the Linux virtual memory system. Neither do you. Goodbye Linux.
+How to separate the physical map layer from the machine-independent code of the Linux virtual memory system ? Goodbye Linux.
 
 Designing, implementing, and testing an operating system as large and complex as Unix is quite a challenge. That is how I built this OS. Make the unknown known.
 
