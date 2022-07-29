@@ -27,6 +27,8 @@ What attracts me to Linux is that the copy-on-write implementation of Linux is t
 
 How do you separate the physical map layer from the machine-independent code of the Linux virtual memory system ? I have a wild and crazy idea.
 
+For your information, this OS is not Linux.
+
 Designing, implementing, and testing an operating system as large and complex as Unix is quite a challenge. That is how I built this OS. Make the unknown known.
 
 I would like to thank those who take the time to learn about my work and provide me with valuable feedback on how it could be improved.
