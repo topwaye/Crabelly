@@ -35,6 +35,8 @@ Programming means precise control. How do you control Linux precisely ?
 
 To understand what Unix is, we must look to the past with an eye to the future, if not, how could you distinguish between what is good and what is bad about Unix ?
 
-Linux is a gold mine, not gold.
+Linux is a gold mine, not gold. How do you mine gold ? 
+
+Only math can do.
 
 topwaye@hotmail.com
