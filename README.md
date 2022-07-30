@@ -33,4 +33,6 @@ I would also like to take this chance to say to those who dream big in computer 
 
 Programming means precise control. How do you control Linux precisely ?
 
+To understand what Unix is, we must look to the past with an eye to the future.
+
 topwaye@hotmail.com
