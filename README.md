@@ -33,6 +33,6 @@ I would also like to take this chance to say to those who dream big in computer 
 
 Programming means precise control. How do you control Linux precisely ? 
 
-Linux is a gold mine, not gold.
+
 
 topwaye@hotmail.com
