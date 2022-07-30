@@ -29,6 +29,12 @@ Designing, implementing, and testing an operating system as large and complex as
 
 I would like to thank those who take the time to learn about my work and provide me with valuable feedback on how it could be improved.
 
-I would also like to take this chance to say to those who dream big in computer science: Go for it, all roads lead to Linux.
+I would also like to take this chance to say to those who dream big in computer science: Go for it.
+
+Programming means precise control. How do you control Linux precisely ?
+
+To understand what Unix is, we must look to the past with an eye to the future, if not, how could you distinguish between what is good and what is bad about Unix ?
+
+Linux is a gold mine, not gold.
 
 topwaye@hotmail.com
