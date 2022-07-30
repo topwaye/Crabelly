@@ -31,9 +31,7 @@ I would like to thank those who take the time to learn about my work and provide
 
 I would also like to take this chance to say to those who dream big in computer science: Go for it.
 
-Programming means precise control. How do you control Linux precisely ?
-
-To understand what Unix is, we must look to the past with an eye to the future, if not, how could you distinguish between what is good and what is bad about Unix ?
+Programming means precise control. How do you control Linux precisely ? 
 
 Linux is a gold mine, not gold.
 
