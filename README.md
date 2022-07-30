@@ -31,4 +31,6 @@ I would like to thank those who take the time to learn about my work and provide
 
 I would also like to take this chance to say to those who dream big in computer science: Go for it.
 
+Programming means precise control, how do you control Linux precisely ?
+
 topwaye@hotmail.com
