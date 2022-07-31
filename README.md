@@ -7,7 +7,7 @@ The kernel is a mathematical model which is called Trapezoid Set. Trapezoid Set 
 
 Crabs, nasty things, but delicious. We call this new OS Crabelly.
 
-Crabelly is based on the Unix Operating System project at Carnegie-Mellon University.
+The theoretical basis for Crabelly is based on the Unix Operating System project at Carnegie-Mellon University.
 
 Crabelly runs on both uniprocessor and multiprocessor computers connected by networks, ranging from smart phones to personal home systems. Crabelly is designed to provide advanced kernel facilities, in particular, virtual memory management and network communication.
 
