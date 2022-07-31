@@ -39,4 +39,6 @@ Linux is a gold mine, not gold. How do you mine gold ?
 
 Only math can do.
 
+One last question: Why not BSD ? Linux is power, BSD is not.
+
 topwaye@hotmail.com
