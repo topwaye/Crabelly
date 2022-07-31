@@ -39,6 +39,6 @@ Only math can do.
 
 One last question: Why not BSD ? 
 
-Linux is power, BSD is not. The truth is, Linux is BSD, that is what matters.
+Linux is power, BSD is not. The truth is, Linux is the naked BSD, that is what matters.
 
 topwaye@hotmail.com
