@@ -19,25 +19,15 @@ Another question: Do a share map and a copy-on-write map coexist at the same lay
 
 What is the prototype of an OS ? Of course, it is the switchboard of a telephone system used by a company, etc., where telephone calls are answered and put through(= connected) to the appropriate person or department.
 
-An OS which has nothing to do with Linux is destined to do nothing with the real world. What attracts me to Linux is that the implementation of copy-on-write by Linux is the only reasonable solution in this planet, while FreeBSD retains Mach-style shadow object chaining for copy-on-write.
+An OS which has nothing to do with Linux is destined to do nothing with the real world. What attracts me to Linux is that the implementation of copy-on-write by Linux is the only reasonable solution in this planet, while FreeBSD retains Mach-style shadow object chaining for copy-on-write. How do you separate the physical map layer from the machine-independent code of the Linux virtual memory system ? I have a wild and crazy idea.
 
-When reading the Linux source code, you can hardly tell where you are. There are only a small number of people who might know the entire kernel code in the Linux core team. Linux is a kernel that you just cannot read through. That is a good news, which means no man is an expert, each is a part of the main, which means we are all equal at this point, no man could be a hero who takes charge of everything in the Linux world. We use it, but we do not touch it.
+Designing, implementing, and testing an operating system as large and complex as Unix is quite a challenge. That is how I build this OS. Make the unknown known. To understand what Unix is, we must look to the past with an eye to the future, if not, how do you distinguish between what is good and what is bad about Unix ?
 
-How do you separate the physical map layer from the machine-independent code of the Linux virtual memory system ? I have a wild and crazy idea.
-
-Designing, implementing, and testing an operating system as large and complex as Unix is quite a challenge. That is how I built this OS. Make the unknown known.
-
-I would like to thank those who take the time to learn about my work and provide me with valuable feedback on how it could be improved.
-
-I would also like to take this chance to say to those who dream big in computer science: Go for it.
-
-To understand what Unix is, we must look to the past with an eye to the future, if not, how do you distinguish between what is good and what is bad about Unix ?
-
-Programming means precise control. How do you control Linux precisely ?
+Programming means precise control. How do you control Linux precisely ? 
 
 Only math can do.
 
-One last question: Why not BSD ? 
+Why not BSD ? 
 
 Linux is power, BSD is not. The truth is, Linux is the naked BSD, that is what matters.
 
