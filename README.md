@@ -11,13 +11,11 @@ The theoretical basis for Crabelly is based on the Unix Operating System project
 
 Crabelly runs on both uniprocessor and multiprocessor computers connected by networks, ranging from smart phones to personal home systems. Crabelly is designed to provide advanced kernel facilities, in particular, virtual memory management and network communication.
 
-Copy-on-write or simply COW is a good theory which fools a lot of people. It is supposed to create a duplicate process which shares the virtual memory pages with its parent process. If any of these processes try to modify the shared pages then a copy of these pages will be created. Eventually the duplicate process will have its own copy of the parent process. Sounds good, but that is a lie, because fork() system call does not work this way in Unix. Then what happens ? 
+Copy-on-write or simply COW is a good theory which fools a lot of people. It is supposed to create a duplicate process which shares the virtual memory pages with its parent process. If any of these processes try to modify the shared pages then a copy of these pages will be created. Eventually the duplicate process will have its own copy of the parent process. Sounds good, but that is a lie, because fork() system call does not work this way in Unix. Then what happens ? The data resident in an anonymous page is volatile, therefore splitting anonymous pages violates the rule of never manipulating volatile variables, which means splitting anonymous maps will never happen, that is, copy-on-write is restricted. Do a share map and a copy-on-write map coexist at the same layer ? Absolutely not. If they do, a bug follows, meaning a map can only be shared the split part, not the unsplit part, in this undesirable situation.
 
-The data resident in an anonymous page is volatile, therefore splitting anonymous pages violates the rule of never manipulating volatile variables, which means splitting anonymous maps will never happen, that is, copy-on-write is restricted.
+What is the prototype of an OS ? 
 
-Do a share map and a copy-on-write map coexist at the same layer ? Absolutely not. If they do, a bug follows, meaning a map can only be shared the split part, not the unsplit part, in this undesirable situation.
-
-What is the prototype of an OS ? Of course, it is the switchboard of a telephone system used by a company, etc., where telephone calls are answered and put through(= connected) to the appropriate person or department.
+Of course, it is the switchboard of a telephone system used by a company, etc., where telephone calls are answered and put through(= connected) to the appropriate person or department.
 
 How about Linux ?
 
