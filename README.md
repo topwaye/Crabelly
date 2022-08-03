@@ -23,8 +23,6 @@ How about Linux ?
 
 An OS which has nothing to do with Linux is destined to do nothing with the real world. What attracts me to Linux is that the implementation of copy-on-write by Linux is the only reasonable solution in this planet, while FreeBSD retains Mach-style shadow object chaining for copy-on-write. How do you separate the physical map layer from the machine-independent code of the Linux virtual memory system ? I have a wild and crazy idea.
 
-Designing, implementing, and testing an operating system as large and complex as Unix is quite a challenge. That is how I build this OS. Make the unknown known. To understand what Unix is, we must look to the past with an eye to the future, if not, how do you distinguish between what is good and what is bad about Unix ?
-
 Programming means precise control. How do you control Linux precisely ? 
 
 Only math can do.
