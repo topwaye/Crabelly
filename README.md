@@ -43,6 +43,6 @@ Linux is power, BSD is not. The truth is, Linux is the naked BSD, that is what m
 
 Getting started with weaning ourselves off dependence on BSD is so hard. In Linux, we are not reading the code, we are looking at the code from new points of view, we are finding patterns of the code. Thus, we are making ourselves get used to the code. That is how we grow up, that is how we stand up on our own. Actually, that is the way how human beings evolve.
 
-This OS in which the code is fully understood is nothing about Linux. Okay, that is a lie. BSD is going down a path that I cannot follow.
+BSD is going down a path that I cannot follow.
 
 topwaye@hotmail.com
