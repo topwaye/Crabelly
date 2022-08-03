@@ -15,7 +15,7 @@ Copy-on-write or simply COW is a good theory which fools a lot of people. It is 
 
 The data resident in an anonymous page is volatile, therefore splitting anonymous pages violates the rule of never manipulating volatile variables, which means splitting anonymous maps will never happen, that is, copy-on-write is restricted.
 
-Another question: Do a share map and a copy-on-write map coexist at the same layer ? Absolutely not. If they do, a bug follows, meaning a map can only be shared the split part, not the unsplit part, in this undesirable situation.
+Do a share map and a copy-on-write map coexist at the same layer ? Absolutely not. If they do, a bug follows, meaning a map can only be shared the split part, not the unsplit part, in this undesirable situation.
 
 What is the prototype of an OS ? Of course, it is the switchboard of a telephone system used by a company, etc., where telephone calls are answered and put through(= connected) to the appropriate person or department.
 
