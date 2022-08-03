@@ -45,4 +45,13 @@ Getting started with weaning ourselves off dependence on BSD is so hard. In Linu
 
 BSD is going down a path that I cannot follow.
 
+What about Crabelly ?
+
+Crabelly handles copy-on-write as follows. First, each page of memory has a reference counter. Each mapping of the page counts as a reference. Also, pages appearing in the buffer cache also have an reference. Thus any page that is mapped in directly from a file will have a reference count of at least two. Any page whose reference count is greater than or equal to two is considered “shared.” Copy-on-write memory is identified by a copy-on-write flag in the vm area struct structure that maps the region. The first read-fault that occurs on a copy-on-write area of memory will cause the backing file’s page to be mapped in read-only. When a write-fault occurs on a copy-on-write area of region the faulting page’s reference count is checked to see if the page is shared. If so, then a new page is allocated (with a reference count of one), the data from the old page is copied to the new page, and the new page is mapped in. If a process with a copy-on-write region forks, the copy-on-write region is write protected and the reference counter for each mapped page is incremented. This causes future write-faults to perform a copy-on-write.
+
+Copy-on-write memory can be paged out to swap. The swap area is divided into page-sized blocks. Each block has a reference counter that says how many page tables are
+referencing it so the swap subsystem knows when it is no longer in use. To page a copy-on-write page out to swap the page’s PTE is replaced with an invalid PTE containing the address on swap where the data is located and the page is placed in the “swap” file object. The page’s offset is set to the address of its location on swap. When all PTEs pointing to a copy-on-write page are invalidated the page is removed from the swap file and object and freed for reuse. Note that Linux attempts to place successive swap block allocations in the same area of swap to reduce I/O overhead (but it appears to write to swap page-at-a-time).
+
+When a process references a page who’s PTE has been modified to point to an area of swap a page fault is generated. The page fault routine extracts the location of the page on swap from the PTE and searches the swap file object to see if the page is still resident. If so, the page is mapped in. If the fault is a write fault, the swap block is freed since the data will be modified. If the page is not resident in the swap file object a new page is allocated, added to the swap file object at the appropriate offset, and read in from swap. Then the page can be mapped as before.
+
 topwaye@hotmail.com
