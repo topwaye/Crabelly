@@ -21,19 +21,11 @@ What is the prototype of an OS ? Of course, it is the switchboard of a telephone
 
 How about Linux ?
 
-An OS which has nothing to do with Linux is destined to do nothing with the real world. What attracts me to Linux is that the implementation of copy-on-write by Linux is the only reasonable solution in this planet, while FreeBSD retains Mach-style shadow object chaining for copy-on-write. How do you separate the physical map layer from the machine-independent code of the Linux virtual memory system ? I have a wild and crazy idea.
-
-Programming means precise control. How do you control Linux precisely ? 
-
-Only math can do.
+An OS which has nothing to do with Linux is destined to do nothing with the real world. What attracts me to Linux is that the implementation of copy-on-write by Linux is the only reasonable solution in this planet, while FreeBSD retains Mach-style shadow object chaining for copy-on-write. How do you separate the physical map layer from the machine-independent code of the Linux virtual memory system ? I have a wild and crazy idea. Programming means precise control. How do you control Linux precisely ? Only math can do.
 
 Why not BSD ? 
 
-Linux is power, BSD is not. The truth is, Linux is the naked BSD, that is what matters.
-
-Getting started with weaning ourselves off dependence on BSD is so hard. In Linux, we are not reading the code, we are looking at the code from new points of view, we are finding patterns of the code. Thus, we are making ourselves get used to the code. That is how we grow up, that is how we stand up on our own. Actually, that is the way how human beings evolve.
-
-BSD is going down a path that I cannot follow.
+Linux is power, BSD is not. The truth is, Linux is the naked BSD, that is what matters. Getting started with weaning ourselves off dependence on BSD is so hard. In Linux, we are not reading the code, we are looking at the code from new points of view, we are finding patterns of the code. Thus, we are making ourselves get used to the code. That is how we grow up, that is how we stand up on our own. Actually, that is the way how human beings evolve. BSD is going down a path that I cannot follow.
 
 What about Crabelly ?
 
